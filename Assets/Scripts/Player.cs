@@ -61,8 +61,8 @@ public class Player : MonoBehaviour
             break;
         }
 
-        velocity = new Vector2((joystick.Horizontal + Input.GetAxis("Horizontal")) * speed,
-                                  (joystick.Vertical + Input.GetAxis("Vertical")) * speed);
+        velocity = new Vector2(Input.GetAxis("Horizontal") * speed,
+                                Input.GetAxis("Vertical") * speed);
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
 
