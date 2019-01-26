@@ -19,6 +19,6 @@ public class Waypoints : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position,
             waypoints[currentIndex].transform.position,
             Time.deltaTime * speed);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, waypoints[currentIndex].transform.position);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, waypoints[currentIndex].transform.position - transform.position);
     }
 }

@@ -2590,6 +2590,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7067415212524568978, guid: 6fa4ef4edeae147e08464d0ed94444d7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7067415212524568976, guid: 6fa4ef4edeae147e08464d0ed94444d7,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -2944,6 +2949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402218705547466549, guid: b99d74a38b97243268bf5bb73a88ad6f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8402218705547466552, guid: b99d74a38b97243268bf5bb73a88ad6f,
         type: 3}
