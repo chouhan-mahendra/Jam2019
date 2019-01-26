@@ -71,19 +71,6 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         Debug.Log("OnTrigger");
-        if (other.gameObject.CompareTag ("Consumable2D"))
-        {
-            Debug.Log("Collided with consumable");
-            other.gameObject.GetComponent<Renderer> ().material.color = Color.red;
-            other.gameObject.tag = "Finish";
-            GetComponent<AudioSource>().Play();
-            Destroy(other.gameObject,0.5f);
-            gameController.updateScoreBy(1);
-        }
-
-        else if(other.gameObject.CompareTag("Wall")) {
-            Debug.Log("Collided with Wall");
-            gameController.addTimePenalty();
-        }
+        GetComponent<AudioSource>().Play();
     }
 }
