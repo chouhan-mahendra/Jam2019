@@ -2857,6 +2857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 835076541, guid: bf3af4033545848ea9a779f2fd07d74e, type: 3}
+      propertyPath: m_TagString
+      value: Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 835076546, guid: bf3af4033545848ea9a779f2fd07d74e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.554

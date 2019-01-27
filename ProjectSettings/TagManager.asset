@@ -10,7 +10,7 @@ TagManager:
   - MainMenu
   - Wall
   - Pickup
-  - Consumable
+  - Dead
   layers:
   - Default
   - TransparentFX
