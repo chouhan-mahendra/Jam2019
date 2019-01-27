@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - eye
+  - Enemy
+  - GameMenu
+  - MainMenu
+  - Wall
+  - Pickup
+  - Consumable
   layers:
   - Default
   - TransparentFX
