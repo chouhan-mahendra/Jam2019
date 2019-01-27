@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     void Start() {  
         GameObject gameControllerObject = 
             GameObject.FindWithTag("GameController");
+        finalScoreMenu.SetActive(false);
         if(gameControllerObject != null) {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
@@ -39,10 +40,10 @@ public class MainMenu : MonoBehaviour
     }
     public void endGame(int time) {
         Debug.Log("Game Ended in "+ time.ToString());
-        finalScoreText
-            .SetText("You Finished the Game in "+
-                time.ToString()+ " seconds");
-        finalScoreMenu.SetActive(true);
         inGameMenu.SetActive(false);
+    }
+
+    public void showMessage() {
+        finalScoreMenu.SetActive(true);
     }
 }

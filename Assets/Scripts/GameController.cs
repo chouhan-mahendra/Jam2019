@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(scene.name);
         
         Time.timeScale = 0;
-        mainMenu.endGame((int)timer);
+        //mainMenu.endGame((int)timer);
     }
     public void pauseGame() {
         Debug.Log("Game is paused");
@@ -71,12 +71,8 @@ public class GameController : MonoBehaviour
         else audioSource.Play();
     }
     public void updateScoreBy(int delta) {
-        //remainingItems -= delta;
-        //scoreText.text = "Remaining : "+ remainingItems.ToString();
-        if(remainingItems <= 0)
-            Invoke("endGame",1f);
-        else 
-            Invoke("createConsumable",1f);     
+        mainMenu.showMessage();    
+        Invoke("createConsumable",1f);     
     }
 
     //TODO : adds time penalty on every invalid collision
