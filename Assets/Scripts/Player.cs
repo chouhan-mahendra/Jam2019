@@ -8,9 +8,11 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float stealthTimeout = 3f;
+    public bool stealthEnabled = true;
     public Joystick joystick;
     private Rigidbody2D rb;
     private Boolean stealth = false;
+
     private GameController gameController;
     void Start()
     {
@@ -21,29 +23,33 @@ public class Player : MonoBehaviour
         }
         else Debug.Log("Unable to find game contoller");
     }
-
     // Update is called once per frame
     void Update()
     {
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal") * speed,
                                 Input.GetAxis("Vertical") * speed);
-
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, velocity);
+        if (velocity != Vector2.zero) 
+            transform.rotation = 
+                Quaternion.LookRotation(Vector3.forward, velocity);
         rb.velocity = velocity;
         
-        if (Input.GetKeyDown("space") && !stealth) {
-            Debug.Log("Toggle Stealth!");
-            toggleStealthMode();
-            Invoke("toggleStealthMode",stealthTimeout);
-        }
+        if (Input.GetKeyDown("space") && stealthEnabled)
+            StartCoroutine(startStealthMode());
+        
     }
-
-    void toggleStealthMode() {
+    IEnumerator startStealthMode()
+    {
+        stealthEnabled = false;
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         Color color = sprite.color;
-        stealth = !stealth;
-        color.a = stealth ? 0.3f : 1f;
+        stealth = true;
+        color.a = 0.3f;
         sprite.color = color; 
+        yield return new WaitForSeconds(stealthTimeout);
+        color.a = 1f;
+        sprite.color = color;
+        yield return new WaitForSeconds(stealthTimeout);
+        stealthEnabled = true;
     }
     void OnTriggerEnter2D(Collider2D other) 
     {

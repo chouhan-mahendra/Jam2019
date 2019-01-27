@@ -3129,7 +3129,7 @@ PrefabInstance:
     - target: {fileID: 8402218705547466548, guid: b99d74a38b97243268bf5bb73a88ad6f,
         type: 3}
       propertyPath: stealthTimeout
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8402218705547466550, guid: b99d74a38b97243268bf5bb73a88ad6f, type: 3}
