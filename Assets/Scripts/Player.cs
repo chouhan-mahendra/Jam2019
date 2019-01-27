@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public float stealthTimeout = 3f;
     public Joystick joystick;
     private Rigidbody2D rb;
     private Boolean stealth = false;
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && !stealth) {
             Debug.Log("Toggle Stealth!");
             toggleStealthMode();
-            Invoke("toggleStealthMode",2);
+            Invoke("toggleStealthMode",stealthTimeout);
         }
     }
 
@@ -46,6 +47,11 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
+        if(other.gameObject.CompareTag("Pickup")) {
+            other.gameObject.GetComponent<Renderer>().material.color = Color.red;
+            other.gameObject.tag = "Dead";
+            Destroy(other.gameObject,0.5f);
+        }
         if(!stealth) {
             Debug.Log("OnTrigger");
             GetComponent<AudioSource>().Play();
