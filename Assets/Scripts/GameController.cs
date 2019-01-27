@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public enum GameState {
@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     public GameObject consumable;
     public MainMenu mainMenu; 
     public Text timerText;
-    private int remainingItems;
+    private int remainingItems = MAX_REQUIRED;
     private float timer;
     private Player playerScript;
     private AudioSource audioSource;
@@ -49,6 +49,9 @@ public class GameController : MonoBehaviour
     public void endGame() {
         Debug.Log("Game finished!");
         currentGameState = GameState.FINISHED;
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+        
         Time.timeScale = 0;
         mainMenu.endGame((int)timer);
     }
@@ -68,8 +71,8 @@ public class GameController : MonoBehaviour
         else audioSource.Play();
     }
     public void updateScoreBy(int delta) {
-        remainingItems -= delta;
-        scoreText.text = "Remaining : "+ remainingItems.ToString();
+        //remainingItems -= delta;
+        //scoreText.text = "Remaining : "+ remainingItems.ToString();
         if(remainingItems <= 0)
             Invoke("endGame",1f);
         else 

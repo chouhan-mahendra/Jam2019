@@ -57,9 +57,11 @@ public class Player : MonoBehaviour
             other.gameObject.GetComponent<Renderer>().material.color = Color.red;
             other.gameObject.tag = "Dead";
             Destroy(other.gameObject,0.5f);
+            gameController.updateScoreBy(1);
         }
-        if(!stealth) {
+        else if(other.gameObject.CompareTag("Enemy") && !stealth) {
             Debug.Log("OnTrigger");
+            gameController.endGame();
             GetComponent<AudioSource>().Play();
         }        
     }
